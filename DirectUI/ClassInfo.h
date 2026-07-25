@@ -187,7 +187,7 @@ namespace DirectUI
 	public:
 		static HRESULT Register(const WCHAR* pszName, const PropertyInfo* const* ppPI, UINT cPI)
 		{
-			return Register(HINST_THISCOMPONENT, pszName, ppPI, cPI, false); // Don't know the real one yet
+			return Register(HINST_DUIDLL, pszName, ppPI, cPI, false);
 		}
 
 		static HRESULT RegisterGlobal(HMODULE hModule, const WCHAR* pszName, const PropertyInfo* const* ppPI, UINT cPI)

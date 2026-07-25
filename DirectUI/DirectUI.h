@@ -25,7 +25,7 @@
 #endif
 
 EXTERN_C IMAGE_DOS_HEADER __ImageBase;
-#define HINST_THISCOMPONENT ((HINSTANCE)&__ImageBase)
+#define HINST_DUIDLL ((HINSTANCE)&__ImageBase)
 
 #define DUI_VERSION 14
 
@@ -310,17 +310,17 @@ namespace DirectUI
 
 	inline HRESULT WINAPI InitProcess(DWORD dwExpectedVersion, bool fEnableUIAutomationProvider = true, bool fInitCommctl = true)
 	{
-		return InitProcessPriv(dwExpectedVersion, HINST_THISCOMPONENT, true, fEnableUIAutomationProvider, fInitCommctl);
+		return InitProcessPriv(dwExpectedVersion, HINST_DUIDLL, true, fEnableUIAutomationProvider, fInitCommctl);
 	}
 
 	inline HRESULT WINAPI UnInitProcess()
 	{
-		return UnInitProcessPriv(HINST_THISCOMPONENT);
+		return UnInitProcessPriv(HINST_DUIDLL);
 	}
 
 	inline int RelPixToPixelWithScaleFactor(float flScaleFactor, int nRelPix)
 	{
-		return (int)floorf((float)nRelPix * flScaleFactor + 0.5f);
+		return static_cast<int>(floorf(static_cast<float>(nRelPix) * flScaleFactor + 0.5f));
 	}
 
 	inline int RelPixToPixel(int nRelPix)
