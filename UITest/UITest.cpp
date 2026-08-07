@@ -216,8 +216,7 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
 	DUIXmlParser* pParser;
 	THROW_IF_FAILED(DUIXmlParser::Create(&pParser, nullptr, nullptr, DUIParserError, nullptr));
-
-	THROW_IF_FAILED(pParser->SetXMLFromResource(IDR_UIFILE1, hInstance, HINST_THISCOMPONENT));
+	THROW_IF_FAILED(pParser->SetXMLFromResource(IDR_UIFILE, hInstance, HINST_DUIDLL));
 
 	Value* pvRefDuiSheet;
 	THROW_IF_FAILED(pParser->GetSheet(L"ImmersiveLight", &pvRefDuiSheet));
