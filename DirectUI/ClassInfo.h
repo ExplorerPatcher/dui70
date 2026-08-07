@@ -192,7 +192,7 @@ namespace DirectUI
 
 		static HRESULT RegisterGlobal(HMODULE hModule, const WCHAR* pszName, const PropertyInfo* const* ppPI, UINT cPI)
 		{
-			return Register(hModule, pszName, ppPI, cPI, false);
+			return Register(hModule, pszName, ppPI, cPI, true);
 		}
 
 		HRESULT CreateInstance(Element* pParent, DWORD* pdwDeferCookie, Element** ppElement) override
