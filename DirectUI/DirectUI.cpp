@@ -20,7 +20,7 @@ extern "C"
 HRESULT WINAPI InitProcessPriv(DWORD dwExpectedVersion, HMODULE hModule, bool fRegisterControls, bool fEnableUIAutomationProvider, bool fInitCommctl) STUB_ZERO;
 HRESULT WINAPI UnInitProcessPriv(HMODULE hModule) STUB_ZERO;
 HRESULT WINAPI InitThread(UINT nThreadMode) STUB_ZERO;
-HRESULT WINAPI UnInitThread() STUB_VOID;
+HRESULT WINAPI UnInitThread() STUB_ZERO;
 HRESULT WINAPI CreateDUIWrapper(Element* pe, IUnknown** ppunk) STUB_ZERO;
 HRESULT WINAPI CreateDUIWrapperEx(Element* pe, IXProviderCP* pprovCP, IUnknown** ppunk) STUB_ZERO;
 HRESULT WINAPI CreateDUIWrapperFromResource(HINSTANCE hRes, const WCHAR* pszResource, const WCHAR* pszResID, const WCHAR* pszFile, IUnknown** ppunk) STUB_ZERO;
