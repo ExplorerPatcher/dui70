@@ -233,7 +233,7 @@ namespace DirectUI
 		HRESULT WINAPI InitProcessPriv(DWORD dwExpectedVersion, HMODULE hModule, bool fRegisterControls, bool fEnableUIAutomationProvider, bool fInitCommctl);
 		HRESULT WINAPI UnInitProcessPriv(HMODULE hModule);
 		HRESULT WINAPI InitThread(UINT nThreadMode);
-		void WINAPI UnInitThread();
+		HRESULT WINAPI UnInitThread();
 
 		HRESULT WINAPI CreateDUIWrapper(Element* pe, IUnknown** ppunk);
 		HRESULT WINAPI CreateDUIWrapperEx(Element* pe, IXProviderCP* pprovCP, IUnknown** ppunk);

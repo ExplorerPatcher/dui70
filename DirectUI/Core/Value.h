@@ -36,6 +36,7 @@ namespace DirectUI
 
 	DEFINE_ENUM_FLAG_OPERATORS(PropertyGroups);
 
+	typedef DynamicArray<Element*>
 	typedef DynamicArray<Value*> ValueList;
 
 	class Layout;
