@@ -68,7 +68,7 @@ namespace DirectUI
 		static HRESULT WINAPI Create(UINT nCreate, Element* pParent, DWORD* pdwDeferCookie, Element** ppElement);
 
 		HRESULT Destroy(bool fDelayed = true);
-		HRESULT DestroyAll(bool fDelayed);
+		HRESULT DestroyAll(bool fDelayed = true);
 
 		Element();
 		Element(const Element&) = default;
