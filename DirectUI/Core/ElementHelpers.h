@@ -22,7 +22,7 @@ public:
 
 	ULONG Release()
 	{
-		_ASSERTE("0 != _cRef");
+		_ASSERTE(0 != _cRef);
 		ULONG cRef = InterlockedDecrement(&_cRef);
 		if (cRef == 0 && this)
 		{
@@ -162,7 +162,7 @@ public:
 protected:
 	virtual ~CSafeElementProxy()
 	{
-		_ASSERTE("_hgSync == nullptr");
+		_ASSERTE(_hgSync == nullptr);
 	}
 
 public:

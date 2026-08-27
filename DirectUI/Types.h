@@ -33,6 +33,18 @@ inline bool operator==(const UID& lhs, const UIDPROC& rhs)
 	return lhs._address == rhs()._address;
 }
 
+#define DEFINE_UID(eventTag, eventUID) \
+	inline const BYTE uid##eventTag####eventUID = 0; \
+	inline UID eventTag::eventUID(&uid##eventTag####eventUID)
+
+#define DEFINE_UID_FUNCTION(eventTag, eventUID) \
+	inline const BYTE uid##eventTag####eventUID = 0; \
+	inline UID eventTag::eventUID() { return &uid##eventTag####eventUID; }
+
+#define DEFINE_UID_GLOBAL(eventUID) \
+	inline const BYTE uid##eventUID = 0; \
+	inline UID eventUID(&uid##eventUID)
+
 //forward declares
 namespace DirectUI
 {

@@ -122,15 +122,15 @@ namespace DirectUI
 			TouchButton* _peTouchButton;
 		};
 
-		void _UpdateAccState(bool, bool);
-		void _OnKeyboardEvent(KeyboardEvent*);
-		void _OnMouseEvent(MouseEvent*);
-		void _OnPointerEvent(PointerEvent*);
-		bool _StartClick(ClickDevice);
-		bool _UpdateClick(ClickDevice, bool);
-		bool _FinishClick(ClickDevice, UINT, UINT, POINT*);
-		bool _TriggerRightClick(UINT, POINT*);
-		void _SyncDefaultEnterHandling(TouchHWNDElement*);
+		void _UpdateAccState(bool fAccessible, bool fPressed);
+		void _OnKeyboardEvent(KeyboardEvent* pke);
+		void _OnMouseEvent(MouseEvent* pme);
+		void _OnPointerEvent(PointerEvent* ppe);
+		bool _StartClick(ClickDevice nDevice);
+		bool _UpdateClick(ClickDevice nClickDevice, bool fPressed);
+		bool _FinishClick(ClickDevice nClickDevice, UINT cClick, UINT uModifiers, POINT* ppt);
+		bool _TriggerRightClick(UINT uModifiers, POINT* ppt);
+		void _SyncDefaultEnterHandling(TouchHWNDElement* peRoot);
 
 		ClickDevice _nClickDevice;
 		UINT _nClickPointerID;
