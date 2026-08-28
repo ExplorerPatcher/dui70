@@ -248,6 +248,7 @@ typedef struct tagLAYER_INFO
 	int xOffset;
 	int yOffset;
 	int zOrder;
+	IUnknown* pUnkVisual;
 	bool fIgnoreOffsetsFromLayout;
 	float flXPerspective;
 	float flYPerspective;
