@@ -151,7 +151,7 @@ namespace DirectUI
 			return hr;
 		}
 
-		HRESULT TriggerDrag(DynamicArray<Element*>* pelRemaining, DWORD* pdwCookie)
+		HRESULT TriggerDrag(ElementList* pelRemaining, DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
 			if (SUCCEEDED(hr))
@@ -162,7 +162,7 @@ namespace DirectUI
 		}
 
 		HRESULT TriggerDrag(
-			Element* peToDrag, DynamicArray<Element*>* pelRemaining, UINT uiState, POINT ptContact, DWORD* pdwCookie)
+			Element* peToDrag, ElementList* pelRemaining, UINT uiState, POINT ptContact, DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
 			if (SUCCEEDED(hr))
@@ -173,7 +173,7 @@ namespace DirectUI
 		}
 
 		HRESULT TriggerDrop(
-			Element*, DynamicArray<Element*>*, Element*, int, int, POINT, POINTFLOAT, POINTFLOAT, DWORD* pdwCookie)
+			Element*, ElementList*, Element*, int, int, POINT, POINTFLOAT, POINTFLOAT, DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
 			if (SUCCEEDED(hr))
@@ -183,7 +183,7 @@ namespace DirectUI
 			return hr;
 		}
 
-		HRESULT TriggerDrop(Element*, DynamicArray<Element*>*, Element*, int, int, POINT, DWORD* pdwCookie)
+		HRESULT TriggerDrop(Element*, ElementList*, Element*, int, int, POINT, DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
 			if (SUCCEEDED(hr))
@@ -258,8 +258,8 @@ namespace DirectUI
 		}
 
 		HRESULT TriggerContentTransition(
-			DynamicArray<Element*>* pelSources, DynamicArray<Element*>* pelDests, Element* peParent, POINT ptOffset,
-			int nLayoutPos, DWORD* pdwCookie)
+			ElementList* pelSources, ElementList* pelDests, Element* peParent, POINT ptOffset, int nLayoutPos,
+			DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
 			if (SUCCEEDED(hr))
@@ -270,8 +270,8 @@ namespace DirectUI
 		}
 
 		HRESULT TriggerPageTransition(
-			DynamicArray<Element*>* pelSources, DynamicArray<Element*>* pelDests, Element* peParent, POINT ptOffset,
-			int nLayoutPos, DWORD* pdwCookie)
+			ElementList* pelSources, ElementList* pelDests, Element* peParent, POINT ptOffset, int nLayoutPos,
+			DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
 			if (SUCCEEDED(hr))
@@ -338,7 +338,7 @@ namespace DirectUI
 			return hr;
 		}
 
-		HRESULT TriggerEntrance(DynamicArray<Element*>* pelToEnter, DynamicArray<POINT>* pdaOffsets, DWORD* pdwCookie)
+		HRESULT TriggerEntrance(ElementList* pelToEnter, DynamicArray<POINT>* pdaOffsets, DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
 			if (SUCCEEDED(hr))
@@ -348,8 +348,7 @@ namespace DirectUI
 			return hr;
 		}
 
-		HRESULT TriggerNudge(
-			DynamicArray<Element*>* pelToNudge, DynamicArray<POINT>* pdaOffsets, UINT uiState, DWORD* pdwCookie)
+		HRESULT TriggerNudge(ElementList* pelToNudge, DynamicArray<POINT>* pdaOffsets, UINT uiState, DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
 			if (SUCCEEDED(hr))
@@ -383,7 +382,7 @@ namespace DirectUI
 			return hr;
 		}
 
-		HRESULT TriggerDeleteGroup(DynamicArray<Element*>* pelToDelete, bool fDestroy, DWORD* pdwCookie)
+		HRESULT TriggerDeleteGroup(ElementList* pelToDelete, bool fDestroy, DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
 			if (SUCCEEDED(hr))
@@ -394,7 +393,7 @@ namespace DirectUI
 		}
 
 		HRESULT TriggerAddGroup(
-			DynamicArray<Element*>* pelParents, DynamicArray<DynamicArray<ElementIndexPair*>*>* pdaToAdd,
+			ElementList* pelParents, DynamicArray<DynamicArray<ElementIndexPair*>*>* pdaToAdd,
 			int nLayoutPos, DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
@@ -406,7 +405,7 @@ namespace DirectUI
 		}
 
 		HRESULT TriggerAddGroup(
-			DynamicArray<Element*>* pelToAdd, Element* peParent, DynamicArray<UINT>* pdaIndices, int nLayoutPos,
+			ElementList* pelToAdd, Element* peParent, DynamicArray<UINT>* pdaIndices, int nLayoutPos,
 			DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
@@ -417,7 +416,7 @@ namespace DirectUI
 			return hr;
 		}
 
-		HRESULT TriggerSearchFilterDelete(DynamicArray<Element*>* pelToDelete, bool fDestroy, DWORD* pdwCookie)
+		HRESULT TriggerSearchFilterDelete(ElementList* pelToDelete, bool fDestroy, DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
 			if (SUCCEEDED(hr))
@@ -428,7 +427,7 @@ namespace DirectUI
 		}
 
 		HRESULT TriggerSearchFilterAdd(
-			DynamicArray<Element*>* pelParents, DynamicArray<DynamicArray<ElementIndexPair*>*>* pdaToAdd,
+			ElementList* pelParents, DynamicArray<DynamicArray<ElementIndexPair*>*>* pdaToAdd,
 			int nLayoutPos, DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
@@ -440,7 +439,7 @@ namespace DirectUI
 		}
 
 		HRESULT TriggerSearchFilterAdd(
-			DynamicArray<Element*>* pelToAdd, Element* peParent, DynamicArray<UINT>* pdaIndices, int nLayoutPos,
+			ElementList* pelToAdd, Element* peParent, DynamicArray<UINT>* pdaIndices, int nLayoutPos,
 			DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
@@ -451,7 +450,7 @@ namespace DirectUI
 			return hr;
 		}
 
-		HRESULT TriggerFadeGroup(DynamicArray<Element*>* pelToFade, UINT uiState, DWORD* pdwCookie)
+		HRESULT TriggerFadeGroup(ElementList* pelToFade, UINT uiState, DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
 			if (SUCCEEDED(hr))

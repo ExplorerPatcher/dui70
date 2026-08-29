@@ -422,7 +422,7 @@ Element* Element::GetParent() STUB_ZERO;
 bool Element::GetVisible() STUB_ZERO;
 int Element::GetWidth() STUB_ZERO;
 int Element::GetHeight() STUB_ZERO;
-DynamicArray<Element*>* Element::GetChildren(Value** ppv) STUB_ZERO;
+ElementList* Element::GetChildren(Value** ppv) STUB_ZERO;
 int Element::GetX() STUB_ZERO;
 int Element::GetY() STUB_ZERO;
 Layout* Element::GetLayout(Value** ppv) STUB_ZERO;
@@ -902,7 +902,7 @@ void Layout::Attach(Element* pec) STUB_VOID;
 void Layout::Detach(Element* pec) STUB_VOID;
 UINT Layout::GetLayoutChildCount(Element* pec) STUB_ZERO;
 int Layout::GetLayoutIndexFromChild(Element* pec, Element* peChild) STUB_ZERO;
-Element* Layout::GetChildFromLayoutIndex(Element* pec, int iLayoutIdx, DynamicArray<Element*>* peList) STUB_ZERO;
+Element* Layout::GetChildFromLayoutIndex(Element* pec, int iLayoutIdx, ElementList* peList) STUB_ZERO;
 Element* Layout::GetAdjacent(Element* pec, Element* peFrom, int iNavDir, const NavReference* pnr, DWORD dwFlags) STUB_ZERO;
 Layout::Layout() STUB_VOID;
 void Layout::Initialize() STUB_VOID;
@@ -1642,7 +1642,7 @@ void DialogElement::OnListenedEvent(Element* peFrom, Event* pEvent) STUB_VOID;
 //~ End DirectUI::DialogElement Class
 
 //~ Begin DirectUI::DuiNavigate Class
-Element* DuiNavigate::Navigate(Element* peFrom, DynamicArray<Element*>* pelConsider, int nNavDir) STUB_ZERO;
+Element* DuiNavigate::Navigate(Element* peFrom, ElementList* pelConsider, int nNavDir) STUB_ZERO;
 //~ End DirectUI::DuiNavigate Class
 
 //~ Begin DirectUI::Edit Class
@@ -4206,7 +4206,7 @@ Value* Value::CreateInt(int dValue, DynamicScaleValue dsv) STUB_ZERO
 Value* Value::CreateFloat(float flValue, DynamicScaleValue dsv) STUB_ZERO
 Value* Value::CreateBool(bool bValue) STUB_ZERO
 Value* Value::CreateElementRef(Element* peValue) STUB_ZERO
-Value* Value::CreateElementList(DynamicArray<Element*>* peListValue) STUB_ZERO
+Value* Value::CreateElementList(ElementList* peListValue) STUB_ZERO
 Value* Value::CreateString(const WCHAR* pszValue, HINSTANCE hResLoad) STUB_ZERO
 Value* Value::CreateEncodedString(const WCHAR* pszValue) STUB_ZERO
 Value* Value::CreatePoint(int x, int y, DynamicScaleValue dsv) STUB_ZERO
@@ -4252,7 +4252,7 @@ int Value::GetScaledInt(float flScaleFactor) STUB_ZERO
 float Value::GetFloat() STUB_ZERO
 bool Value::GetBool() STUB_ZERO
 Element* Value::GetElement() STUB_ZERO
-DynamicArray<Element*>* Value::GetElementList() STUB_ZERO
+ElementList* Value::GetElementList() STUB_ZERO
 const WCHAR* Value::GetString() STUB_ZERO
 HRESULT Value::GetEncodedString(WCHAR* pszBuf, size_t cchBuf) STUB_ZERO
 size_t Value::GetEncodedStringLength() STUB_ZERO

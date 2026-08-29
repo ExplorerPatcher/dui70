@@ -229,7 +229,7 @@ namespace DirectUI
 
 	struct PVLAnimationAddEvent : PVLAnimationNotifyEvent
 	{
-		DynamicArray<CSafeElementPtr<Element>*>* pspelParents;
+		CSafeElementPtrList* pspelParents;
 		DynamicArray<DynamicArray<SafeElementIndexPair*>*>* pdaToAdd;
 		int nLayoutPos;
 		bool fFilter;
@@ -245,8 +245,8 @@ namespace DirectUI
 
 	struct PVLAnimationContentTransitionEvent : PVLAnimationNotifyEvent, PVLAnimationTranslation
 	{
-		DynamicArray<CSafeElementPtr<Element>*>* pspelSources;
-		DynamicArray<CSafeElementPtr<Element>*>* pspelDests;
+		CSafeElementPtrList* pspelSources;
+		CSafeElementPtrList* pspelDests;
 		CSafeElementPtr<Element> speParent;
 		POINT ptOffset;
 		int nLayoutPos;
@@ -256,8 +256,8 @@ namespace DirectUI
 	{
 		CSafeElementPtr<Element> speToFadeOut;
 		CSafeElementPtr<Element> speToFadeIn;
-		DynamicArray<CSafeElementPtr<Element>*>* pspelToFadeOut;
-		DynamicArray<CSafeElementPtr<Element>*>* pspelToFadeIn;
+		CSafeElementPtrList* pspelToFadeOut;
+		CSafeElementPtrList* pspelToFadeIn;
 		bool fCloneTransforms;
 		bool fLayoutAlreadySet;
 		bool fDestroy;
@@ -303,7 +303,7 @@ namespace DirectUI
 	struct PVLAnimationDeleteEvent : PVLAnimationNotifyEvent
 	{
 		CSafeElementPtr<Element> speToDelete;
-		DynamicArray<CSafeElementPtr<Element>*>* pspelToDelete;
+		CSafeElementPtrList* pspelToDelete;
 		bool fCollection;
 		bool fDestroy;
 		bool fFilter;
@@ -312,7 +312,7 @@ namespace DirectUI
 	struct PVLAnimationDragEvent : PVLAnimationNotifyEvent, PVLAnimationScale, PVLAnimationClip
 	{
 		CSafeElementPtr<Element> speToDrag;
-		DynamicArray<CSafeElementPtr<Element>*>* pspelRemaining;
+		CSafeElementPtrList* pspelRemaining;
 		CSafeElementPtr<Element> speContent;
 		CSafeElementPtr<Element> speAdornment;
 		DynamicArray<ClipRectWithElement*>* pTowerClippingRects;
@@ -344,7 +344,7 @@ namespace DirectUI
 	struct PVLAnimationDropEvent : PVLAnimationNotifyEvent, PVLAnimationTranslation, PVLAnimationScale, PVLAnimationClip
 	{
 		CSafeElementPtr<Element> speToDrop;
-		DynamicArray<CSafeElementPtr<Element>*>* pspelRemaining;
+		CSafeElementPtrList* pspelRemaining;
 		CSafeElementPtr<Element> speContent;
 		CSafeElementPtr<Element> speAdornment;
 		DynamicArray<ClipRectWithElement*>* pTowerClippingRects;
@@ -357,7 +357,7 @@ namespace DirectUI
 
 	struct PVLAnimationEntranceEvent : PVLAnimationNotifyEvent, PVLAnimationTranslation
 	{
-		DynamicArray<CSafeElementPtr<Element>*>* pspelToEnter;
+		CSafeElementPtrList* pspelToEnter;
 		DynamicArray<POINT>* pdaOffsets;
 	};
 
@@ -375,7 +375,7 @@ namespace DirectUI
 	struct PVLAnimationFadeEvent : PVLAnimationNotifyEvent, PVLAnimationAlpha
 	{
 		CSafeElementPtr<Element> speToFade;
-		DynamicArray<CSafeElementPtr<Element>*>* pspelToFade;
+		CSafeElementPtrList* pspelToFade;
 		bool fCollection;
 		bool fLeaveElementsVisible;
 		int nOrderNumber;
@@ -384,7 +384,7 @@ namespace DirectUI
 	struct PVLAnimationLaunchEvent : PVLAnimationNotifyEvent, PVLAnimationScale
 	{
 		CSafeElementPtr<Element> speToLaunch;
-		DynamicArray<CSafeElementPtr<Element>*>* pspelRemaining;
+		CSafeElementPtrList* pspelRemaining;
 	};
 
 	struct PVLAnimationLauncherEvent : PVLAnimationNotifyEvent, PVLAnimationTranslation, PVLAnimationScale, PVLAnimationZOrder
@@ -393,8 +393,8 @@ namespace DirectUI
 		UINT uiVersion;
 		CSafeElementPtr<Element> speLauncher;
 		CSafeElementPtr<Element> speLauncherContent;
-		DynamicArray<CSafeElementPtr<Element>*>* pspelTowers;
-		DynamicArray<CSafeElementPtr<Element>*>* pspelGroupHeaders;
+		CSafeElementPtrList* pspelTowers;
+		CSafeElementPtrList* pspelGroupHeaders;
 		CSafeElementPtr<Element> speStartText;
 		CSafeElementPtr<Element> speUserTile;
 		CSafeElementPtr<Element> speSortDropdown;
@@ -450,7 +450,7 @@ namespace DirectUI
 
 	struct PVLAnimationNudgeEvent : PVLAnimationNotifyEvent, PVLAnimationTranslation
 	{
-		DynamicArray<CSafeElementPtr<Element>*>* pspelToNudge;
+		CSafeElementPtrList* pspelToNudge;
 		DynamicArray<POINT>* pdaOffsets;
 	};
 
@@ -527,8 +527,8 @@ namespace DirectUI
 		bool fLogin;
 		CSafeElementPtr<Element> speLauncher;
 		CSafeElementPtr<Element> speLauncherContent;
-		DynamicArray<CSafeElementPtr<Element>*>* pspelTowers;
-		DynamicArray<CSafeElementPtr<Element>*>* pspelGroupHeaders;
+		CSafeElementPtrList* pspelTowers;
+		CSafeElementPtrList* pspelGroupHeaders;
 		CSafeElementPtr<Element> speStartText;
 		CSafeElementPtr<Element> speUserTileIcon;
 		CSafeElementPtr<Element> speUserTileText;
@@ -600,28 +600,28 @@ namespace DirectUI
 		virtual HRESULT STDMETHODCALLTYPE TriggerSlide(UINT uiVersion, Element* peToSlide, Element* peParent, UINT uiState, UINT uiDir, POINT ptMove, bool fLayoutAlreadySet, bool fAffected, DWORD* pdwCookie) = 0;
 		virtual HRESULT STDMETHODCALLTYPE TriggerFade(Element* peToFade, UINT uiState, DWORD* pdwCookie) = 0;
 		virtual HRESULT STDMETHODCALLTYPE TriggerTap(Element* peToTap, UINT uiState, POINT ptContact, DWORD* pdwCookie) = 0;
-		virtual HRESULT STDMETHODCALLTYPE TriggerDrag(Element* peToDrag, DynamicArray<Element*>* pelRemaining, UINT uiState, POINT ptContact, DWORD* pdwCookie) = 0;
-		virtual HRESULT STDMETHODCALLTYPE TriggerDrop(Element* peToDrop, DynamicArray<Element*>* pelRemaining, Element* peParent, int nIndex, int nLayoutPos, POINT ptDest, bool fUseCustomScale, POINTFLOAT ptflScaleTo, POINTFLOAT ptflScaleOrigin, DWORD* pdwCookie) = 0;
+		virtual HRESULT STDMETHODCALLTYPE TriggerDrag(Element* peToDrag, ElementList* pelRemaining, UINT uiState, POINT ptContact, DWORD* pdwCookie) = 0;
+		virtual HRESULT STDMETHODCALLTYPE TriggerDrop(Element* peToDrop, ElementList* pelRemaining, Element* peParent, int nIndex, int nLayoutPos, POINT ptDest, bool fUseCustomScale, POINTFLOAT ptflScaleTo, POINTFLOAT ptflScaleOrigin, DWORD* pdwCookie) = 0;
 		virtual HRESULT STDMETHODCALLTYPE TriggerReveal(Element* peTapped, Element* peOutline, Element* peBackground, Element* peContent, const RECT* prcContentClipFrom, DWORD* pdwCookie) = 0;
 		virtual HRESULT STDMETHODCALLTYPE TriggerHide(Element* peTapped, Element* peOutline, Element* peBackground, Element* peContent, const RECT* prcContentClipTo, DWORD* pdwCookie) = 0;
 		virtual HRESULT STDMETHODCALLTYPE TriggerReflow(Element* peContainer, bool fUseNewSize, SIZE* pszDest, DWORD* pdwCookie) = 0;
 		virtual HRESULT STDMETHODCALLTYPE TriggerResize(Element* peToResize, SIZE szDest, DWORD* pdwCookie) = 0;
 		virtual HRESULT STDMETHODCALLTYPE TriggerReposition(Element* peToMove, POINT ptDest, bool fReverse, DWORD* pdwCookie) = 0;
 		virtual HRESULT STDMETHODCALLTYPE TriggerMove(Element* peToMove, Element* peParent, int nIndex, bool fTopMost, DWORD* pdwCookie) = 0;
-		virtual HRESULT STDMETHODCALLTYPE TriggerContentTransition(DynamicArray<Element*>* pelSources, DynamicArray<Element*>* pelDests, Element* peParent, POINT ptOffset, int nLayoutPos, DWORD* pdwCookie) = 0;
-		virtual HRESULT STDMETHODCALLTYPE TriggerPageTransition(DynamicArray<Element*>* pelSources, DynamicArray<Element*>* pelDests, Element* peParent, POINT ptOffset, int nLayoutPos, DWORD* pdwCookie) = 0;
+		virtual HRESULT STDMETHODCALLTYPE TriggerContentTransition(ElementList* pelSources, ElementList* pelDests, Element* peParent, POINT ptOffset, int nLayoutPos, DWORD* pdwCookie) = 0;
+		virtual HRESULT STDMETHODCALLTYPE TriggerPageTransition(ElementList* pelSources, ElementList* pelDests, Element* peParent, POINT ptOffset, int nLayoutPos, DWORD* pdwCookie) = 0;
 		virtual HRESULT STDMETHODCALLTYPE TriggerBadgeUpdate(Element* peOldBadge, Element* peNewBadge, POINT ptOffset, DWORD* pdwCookie) = 0;
 		virtual HRESULT STDMETHODCALLTYPE TriggerPop(Element* peToPop, Element* peParent, UINT uiState, POINT ptDest, POINT ptOffset, bool fLayoutAlreadySet, bool fUseCurrentOpacity, DWORD* pdwCookie) = 0;
 		virtual HRESULT STDMETHODCALLTYPE TriggerCrossfade(Element* peToFadeOut, Element* peToFadeIn, bool fCloneTransforms, bool fLayoutAlreadySet, bool fDestroy, bool fInplace, DWORD* pdwCookie) = 0;
 		virtual HRESULT STDMETHODCALLTYPE TriggerSwipe(Element* peToSwipe, UINT uiState, POINT ptOffset, Element* peCheckmark, DWORD* pdwCookie) = 0;
 		virtual HRESULT STDMETHODCALLTYPE TriggerShowTileNotification(Element* peOutgoing, POINT ptOutgoingDest, Element* peIncoming, POINT ptIncomingDest, UINT uTileNotificationOption, Element* peLogo, Element* peDisplayName, DWORD* pdwCookie) = 0;
 		virtual HRESULT STDMETHODCALLTYPE TriggerPeekTileNotification(Element* peTargetMessage, POINT ptDest, DWORD* pdwCookie) = 0;
-		virtual HRESULT STDMETHODCALLTYPE TriggerDeleteGroup(DynamicArray<Element*>* pelToDelete, bool fDestroy, bool fFilter, DWORD* pdwCookie) = 0;
-		virtual HRESULT STDMETHODCALLTYPE TriggerAddGroup(DynamicArray<Element*>* pelToAdd, Element* peParent, DynamicArray<UINT>* pdaIndices, int nLayoutPos, bool fFilter, DWORD* pdwCookie) = 0;
-		virtual HRESULT STDMETHODCALLTYPE TriggerAddGroupMultiParent(DynamicArray<Element*>* pelParents, DynamicArray<DynamicArray<ElementIndexPair*>*>* pdaToAdd, int nLayoutPos, bool fFilter, DWORD* pdwCookie) = 0;
-		virtual HRESULT STDMETHODCALLTYPE TriggerFadeGroup(DynamicArray<Element*>* pelToFade, UINT uiState, DWORD* pdwCookie) = 0;
-		virtual HRESULT STDMETHODCALLTYPE TriggerEntrance(DynamicArray<Element*>* pelToEnter, DynamicArray<POINT>* pdaOffsets, DWORD* pdwCookie) = 0;
-		virtual HRESULT STDMETHODCALLTYPE TriggerNudge(DynamicArray<Element*>* pelToNudge, DynamicArray<POINT>* pdaOffsets, UINT uiState, DWORD* pdwCookie) = 0;
+		virtual HRESULT STDMETHODCALLTYPE TriggerDeleteGroup(ElementList* pelToDelete, bool fDestroy, bool fFilter, DWORD* pdwCookie) = 0;
+		virtual HRESULT STDMETHODCALLTYPE TriggerAddGroup(ElementList* pelToAdd, Element* peParent, DynamicArray<UINT>* pdaIndices, int nLayoutPos, bool fFilter, DWORD* pdwCookie) = 0;
+		virtual HRESULT STDMETHODCALLTYPE TriggerAddGroupMultiParent(ElementList* pelParents, DynamicArray<DynamicArray<ElementIndexPair*>*>* pdaToAdd, int nLayoutPos, bool fFilter, DWORD* pdwCookie) = 0;
+		virtual HRESULT STDMETHODCALLTYPE TriggerFadeGroup(ElementList* pelToFade, UINT uiState, DWORD* pdwCookie) = 0;
+		virtual HRESULT STDMETHODCALLTYPE TriggerEntrance(ElementList* pelToEnter, DynamicArray<POINT>* pdaOffsets, DWORD* pdwCookie) = 0;
+		virtual HRESULT STDMETHODCALLTYPE TriggerNudge(ElementList* pelToNudge, DynamicArray<POINT>* pdaOffsets, UINT uiState, DWORD* pdwCookie) = 0;
 		virtual HRESULT STDMETHODCALLTYPE TriggerBeginStoryboard(Element* peTrapElement, int* pnStoryboardId, DWORD* pdwCookie) = 0;
 		virtual HRESULT STDMETHODCALLTYPE TriggerEndStoryboard(Element* peTrapElement, int nStoryboardId) = 0;
 		virtual HRESULT STDMETHODCALLTYPE TriggerCancelStoryboard(Element* peTrapElement, int nStoryboardId) = 0;
@@ -636,13 +636,13 @@ namespace DirectUI
 	IDuiLauncherAnimationTriggers : IUnknown
 	{
 		virtual HRESULT STDMETHODCALLTYPE TriggerTap(Element* peToTap, UINT uiState, POINT ptContact, UINT uiVersion, DWORD* pdwCookie) = 0;
-		virtual HRESULT STDMETHODCALLTYPE TriggerLaunch(Element* peToLaunch, DynamicArray<Element*>* pelUnk, DWORD* pdwCookie) = 0; // @NOTE: The parameter names here are guessed (therefore not accurate) based on other common naming schemes microsoft uses in Dui70, originally they were all __formal
-		virtual HRESULT STDMETHODCALLTYPE TriggerDrag(Element* peToDrag, DynamicArray<Element*>* pelRemaining, Element* peContent, Element* peAdornment, DynamicArray<ClipRectWithElement*>* pTowerClippingRects, UINT uiState, POINT ptContact, DWORD* pdwCookie) = 0;
-		virtual HRESULT STDMETHODCALLTYPE TriggerDrop(Element* peToDrop, DynamicArray<Element*>* pelRemaining, Element* peContent, Element* peAdornment, DynamicArray<ClipRectWithElement*>* pTowerClippingRects, Element* peParent, int nIndex, int nLayoutPos, POINT ptDest, DWORD* pdwCookie) = 0;
-		// virtual HRESULT STDMETHODCALLTYPE TriggerSession(UINT uiVersion, UINT uiState, ElementOffsetPair* peopLauncher, DynamicArray<Element*>* pelTowers, DynamicArray<Element*>* pelGroupHeaders, ElementOffsetPair* peopStartText, ElementOffsetPair* peopUserTileIcon, ElementOffsetPair* peopUserTileText, Element* peLauncherContent, POINT ptTowerOffset, POINT ptGroupHeaderOffset, DWORD* pdwCookie) = 0;
+		virtual HRESULT STDMETHODCALLTYPE TriggerLaunch(Element* peToLaunch, ElementList* pelUnk, DWORD* pdwCookie) = 0; // @NOTE: The parameter names here are guessed (therefore not accurate) based on other common naming schemes microsoft uses in Dui70, originally they were all __formal
+		virtual HRESULT STDMETHODCALLTYPE TriggerDrag(Element* peToDrag, ElementList* pelRemaining, Element* peContent, Element* peAdornment, DynamicArray<ClipRectWithElement*>* pTowerClippingRects, UINT uiState, POINT ptContact, DWORD* pdwCookie) = 0;
+		virtual HRESULT STDMETHODCALLTYPE TriggerDrop(Element* peToDrop, ElementList* pelRemaining, Element* peContent, Element* peAdornment, DynamicArray<ClipRectWithElement*>* pTowerClippingRects, Element* peParent, int nIndex, int nLayoutPos, POINT ptDest, DWORD* pdwCookie) = 0;
+		// virtual HRESULT STDMETHODCALLTYPE TriggerSession(UINT uiVersion, UINT uiState, ElementOffsetPair* peopLauncher, ElementList* pelTowers, ElementList* pelGroupHeaders, ElementOffsetPair* peopStartText, ElementOffsetPair* peopUserTileIcon, ElementOffsetPair* peopUserTileText, Element* peLauncherContent, POINT ptTowerOffset, POINT ptGroupHeaderOffset, DWORD* pdwCookie) = 0;
 		// virtual HRESULT STDMETHODCALLTYPE TriggerLogin(UINT uiVersion, Element* peLoginUserTile, Element* peLoginUserText, POINT ptOffset, DWORD* pdwCookie) = 0;
-		virtual HRESULT STDMETHODCALLTYPE TriggerLogonEntrance(DynamicArray<Element*>* pelToEnter, DynamicArray<POINT>* pdaOffsets, DWORD* pdwCookie) = 0;
-		virtual HRESULT STDMETHODCALLTYPE TriggerCrossfade(DynamicArray<Element*>* pelToFadeOut, DynamicArray<Element*>* pelToFadeIn, bool fCloneTransforms, bool fLayoutAlreadySet, bool fDestroy, bool fInplace, DWORD* pdwCookie) = 0;
+		virtual HRESULT STDMETHODCALLTYPE TriggerLogonEntrance(ElementList* pelToEnter, DynamicArray<POINT>* pdaOffsets, DWORD* pdwCookie) = 0;
+		virtual HRESULT STDMETHODCALLTYPE TriggerCrossfade(ElementList* pelToFadeOut, ElementList* pelToFadeIn, bool fCloneTransforms, bool fLayoutAlreadySet, bool fDestroy, bool fInplace, DWORD* pdwCookie) = 0;
 		virtual HRESULT STDMETHODCALLTYPE AddScale(int nStoryboardId, Element* peToScale, POINTFLOAT ptflOrigin, POINTFLOAT ptflScale, int nOrderNumber, int nCustomDuration) = 0;
 	};
 
@@ -671,13 +671,13 @@ namespace DirectUI
 
 		//~ Begin IDuiLauncherAnimationTriggers Interface
 		STDMETHODIMP TriggerTap(Element* peToTap, UINT uiState, POINT ptContact, UINT uiVersion, DWORD* pdwCookie) override;
-		STDMETHODIMP TriggerLaunch(Element* peToLaunch, DynamicArray<Element*>* pelUnk, DWORD* pdwCookie) override;
-		STDMETHODIMP TriggerDrag(Element* peToDrag, DynamicArray<Element*>* pelRemaining, Element* peContent, Element* peAdornment, DynamicArray<ClipRectWithElement*>* pTowerClippingRects, UINT uiState, POINT ptContact, DWORD* pdwCookie) override;
-		STDMETHODIMP TriggerDrop(Element* peToDrop, DynamicArray<Element*>* pelRemaining, Element* peContent, Element* peAdornment, DynamicArray<ClipRectWithElement*>* pTowerClippingRects, Element* peParent, int nIndex, int nLayoutPos, POINT ptDest, DWORD* pdwCookie) override;
-		STDMETHODIMP TriggerSession(UINT uiVersion, UINT uiState, ElementOffsetPair* peopLauncher, DynamicArray<Element*>* pelTowers, DynamicArray<Element*>* pelGroupHeaders, ElementOffsetPair* peopStartText, ElementOffsetPair* peopUserTileIcon, ElementOffsetPair* peopUserTileText, Element* peLauncherContent, POINT ptTowerOffset, POINT ptGroupHeaderOffset, DWORD* pdwCookie) override;
+		STDMETHODIMP TriggerLaunch(Element* peToLaunch, ElementList* pelUnk, DWORD* pdwCookie) override;
+		STDMETHODIMP TriggerDrag(Element* peToDrag, ElementList* pelRemaining, Element* peContent, Element* peAdornment, DynamicArray<ClipRectWithElement*>* pTowerClippingRects, UINT uiState, POINT ptContact, DWORD* pdwCookie) override;
+		STDMETHODIMP TriggerDrop(Element* peToDrop, ElementList* pelRemaining, Element* peContent, Element* peAdornment, DynamicArray<ClipRectWithElement*>* pTowerClippingRects, Element* peParent, int nIndex, int nLayoutPos, POINT ptDest, DWORD* pdwCookie) override;
+		STDMETHODIMP TriggerSession(UINT uiVersion, UINT uiState, ElementOffsetPair* peopLauncher, ElementList* pelTowers, ElementList* pelGroupHeaders, ElementOffsetPair* peopStartText, ElementOffsetPair* peopUserTileIcon, ElementOffsetPair* peopUserTileText, Element* peLauncherContent, POINT ptTowerOffset, POINT ptGroupHeaderOffset, DWORD* pdwCookie) override;
 		STDMETHODIMP TriggerLogin(UINT uiVersion, Element* peLoginUserTile, Element* peLoginUserText, POINT ptOffset, DWORD* pdwCookie) override;
-		STDMETHODIMP TriggerLogonEntrance(DynamicArray<Element*>* pelToEnter, DynamicArray<POINT>* pdaOffsets, DWORD* pdwCookie) override;
-		STDMETHODIMP TriggerCrossfade(DynamicArray<Element*>* pelToFadeOut, DynamicArray<Element*>* pelToFadeIn, bool fCloneTransforms, bool fLayoutAlreadySet, bool fDestroy, bool fInplace, DWORD* pdwCookie) override;
+		STDMETHODIMP TriggerLogonEntrance(ElementList* pelToEnter, DynamicArray<POINT>* pdaOffsets, DWORD* pdwCookie) override;
+		STDMETHODIMP TriggerCrossfade(ElementList* pelToFadeOut, ElementList* pelToFadeIn, bool fCloneTransforms, bool fLayoutAlreadySet, bool fDestroy, bool fInplace, DWORD* pdwCookie) override;
 		STDMETHODIMP AddScale(int nStoryboardId, Element* peToScale, POINTFLOAT ptflOrigin, POINTFLOAT ptflScale, int nOrderNumber, int nCustomDuration) override;
 		//~ End IDuiLauncherAnimationTriggers Interface
 

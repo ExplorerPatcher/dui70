@@ -39,6 +39,8 @@ namespace DirectUI
 	typedef DynamicArray<Element*> ElementList;
 	typedef DynamicArray<Value*> ValueList;
 
+	class Expression;
+	class StyleSheet;
 	class Layout;
 
 	struct EncodedString
@@ -86,7 +88,7 @@ namespace DirectUI
 			int _intVal;
 			bool _boolVal;
 			Element* _peVal;
-			DynamicArray<Element*>* _peListVal;
+			DirectUI::ElementList* _peListVal;
 			EncodedString _encodedStringVal;
 			WCHAR* _pszVal;
 			POINT _ptVal;
@@ -102,6 +104,7 @@ namespace DirectUI
 			ValueList* _pvListVal;
 			float _flVal;
 			DynamicArray<double>* _pdblListVal;
+
 			ScaledInt _scaledIntVal;
 			ScaledFloat _scaledFloatVal;
 			ScaledRECT _scaledRectVal;
@@ -117,7 +120,7 @@ namespace DirectUI
 		static Value* WINAPI CreateFloat(float flValue, DynamicScaleValue dsv = DSV_None);
 		static Value* WINAPI CreateBool(bool bValue);
 		static Value* WINAPI CreateElementRef(Element* peValue);
-		static Value* WINAPI CreateElementList(DynamicArray<Element*>* peListValue);
+		static Value* WINAPI CreateElementList(ElementList* peListValue);
 		static Value* WINAPI CreateString(const WCHAR* pszValue, HINSTANCE hResLoad);
 		static Value* WINAPI CreateEncodedString(const WCHAR* pszValue);
 		static Value* WINAPI CreatePoint(int x, int y, DynamicScaleValue dsv = DSV_None);
@@ -183,7 +186,7 @@ namespace DirectUI
 		bool GetBool();
 
 		Element* GetElement();
-		DynamicArray<Element*>* GetElementList();
+		ElementList* GetElementList();
 
 		const WCHAR* GetString();
 		HRESULT GetEncodedString(WCHAR* pszBuf, size_t cchBuf);

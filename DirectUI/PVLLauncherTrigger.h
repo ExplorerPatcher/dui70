@@ -31,7 +31,7 @@ namespace DirectUI
 			return hr;
 		}
 
-		HRESULT TriggerLaunch(Element* peToLaunch, DynamicArray<Element*>* pelUnk, DWORD* pdwCookie)
+		HRESULT TriggerLaunch(Element* peToLaunch, ElementList* pelUnk, DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
 			if (SUCCEEDED(hr))
@@ -42,7 +42,7 @@ namespace DirectUI
 		}
 
 		HRESULT TriggerDrag(
-			Element* peToDrag, DynamicArray<Element*>* pelRemaining, Element* peContent, Element* peAdornment,
+			Element* peToDrag, ElementList* pelRemaining, Element* peContent, Element* peAdornment,
 			DynamicArray<ClipRectWithElement*>* pTowerClippingRects, UINT uiState, POINT ptContact, DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
@@ -55,7 +55,7 @@ namespace DirectUI
 		}
 
 		HRESULT TriggerEnterEditModeScaling(
-			DynamicArray<Element*>* pelAffected, DynamicArray<ClipRectWithElement*>* pTowerClippingRects,
+			ElementList* pelAffected, DynamicArray<ClipRectWithElement*>* pTowerClippingRects,
 			DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
@@ -68,7 +68,7 @@ namespace DirectUI
 			return hr;
 		}
 
-		HRESULT TriggerEnterEditModeScaling(DynamicArray<Element*>* pelAffected, DWORD* pdwCookie)
+		HRESULT TriggerEnterEditModeScaling(ElementList* pelAffected, DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
 			if (SUCCEEDED(hr))
@@ -80,7 +80,7 @@ namespace DirectUI
 		}
 
 		HRESULT TriggerDrop(
-			Element* peToDrop, DynamicArray<Element*>* pelRemaining, Element* peContent, Element* peAdornment,
+			Element* peToDrop, ElementList* pelRemaining, Element* peContent, Element* peAdornment,
 			DynamicArray<ClipRectWithElement*>* pTowerClippingRects, Element* peParent, int nIndex, int nLayoutPos,
 			POINT ptDest, DWORD* pdwCookie)
 		{
@@ -95,7 +95,7 @@ namespace DirectUI
 		}
 
 		HRESULT TriggerExitEditModeScaling(
-			DynamicArray<Element*>* pelAffected, DynamicArray<ClipRectWithElement*>* pTowerClippingRects,
+			ElementList* pelAffected, DynamicArray<ClipRectWithElement*>* pTowerClippingRects,
 			DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
@@ -109,8 +109,8 @@ namespace DirectUI
 		}
 
 		HRESULT TriggerLauncher(
-			UINT uiVersion, UINT uiState, ElementOffsetPair* peopLauncher, DynamicArray<Element*>* pelTowers,
-			DynamicArray<Element*>* pelGroupHeaders, Element* peStartText, Element* peUserTile,
+			UINT uiVersion, UINT uiState, ElementOffsetPair* peopLauncher, ElementList* pelTowers,
+			ElementList* pelGroupHeaders, Element* peStartText, Element* peUserTile,
 			Element* peLauncherContent, Element* peSortDropdown, Element* peSearchBox, POINT ptTowerOffset,
 			DWORD* pdwCookie)
 		{
@@ -123,8 +123,8 @@ namespace DirectUI
 		}
 
 		HRESULT TriggerSession(
-			UINT uiVersion, UINT uiState, ElementOffsetPair* peopLauncher, DynamicArray<Element*>* pelTowers,
-			DynamicArray<Element*>* pelGroupHeaders, ElementOffsetPair* peopStartText,
+			UINT uiVersion, UINT uiState, ElementOffsetPair* peopLauncher, ElementList* pelTowers,
+			ElementList* pelGroupHeaders, ElementOffsetPair* peopStartText,
 			ElementOffsetPair* peopUserTileIcon, ElementOffsetPair* peopUserTileText, Element* peLauncherContent,
 			POINT ptTowerOffset, POINT ptGroupHeaderOffset, DWORD* pdwCookie)
 		{
@@ -150,7 +150,7 @@ namespace DirectUI
 		}
 
 		HRESULT TriggerLogonEntrance(
-			DynamicArray<Element*>* pelToEnter, DynamicArray<POINT>* pdaOffsets, DWORD* pdwCookie)
+			ElementList* pelToEnter, DynamicArray<POINT>* pdaOffsets, DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();
 			if (SUCCEEDED(hr))
@@ -172,7 +172,7 @@ namespace DirectUI
 		}
 
 		HRESULT TriggerCrossfade(
-			DynamicArray<Element*>* pelToFadeOut, DynamicArray<Element*>* pelToFadeIn, bool fCloneTransforms,
+			ElementList* pelToFadeOut, ElementList* pelToFadeIn, bool fCloneTransforms,
 			bool fLayoutAlreadySet, bool fDestroy, bool fInplace, DWORD* pdwCookie)
 		{
 			HRESULT hr = EnsureObject();

@@ -1,9 +1,12 @@
 #pragma once
 
-typedef const DirectUI::PropertyInfo* (WINAPI *PropertyProcT)();
+#include "Value.h"
 
 namespace DirectUI
 {
+	typedef const PropertyInfo* (WINAPI* PropertyProcT)();
+	typedef const PropertyInfo* PropertyInfoArrayItem;
+
 	class StyleSheet;
 	int GetPixelHelper(Element* pe, const PropertyInfo* ppi, bool fUseDefault = false);
 
@@ -493,7 +496,7 @@ namespace DirectUI
 		bool GetVisible();
 		int GetWidth();
 		int GetHeight();
-		DynamicArray<Element*>* GetChildren(Value** ppv);
+		ElementList* GetChildren(Value** ppv);
 		int GetX();
 		int GetY();
 		Layout* GetLayout(Value** ppv);

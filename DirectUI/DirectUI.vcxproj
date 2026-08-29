@@ -338,6 +338,7 @@
     <ClInclude Include="PVLTrigger.h" />
     <ClInclude Include="RadioButtonGlyph.h" />
     <ClInclude Include="Repeater.h" />
+    <ClInclude Include="SafeElementPtr.h" />
     <ClInclude Include="SelectorNoDefault.h" />
     <ClInclude Include="SelectorSelection.h" />
     <ClInclude Include="SelectorSelectionItem.h" />

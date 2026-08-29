@@ -109,6 +109,8 @@ public:
 	}
 };
 
+typedef DirectUI::DynamicArray<CSafeElementPtr<DirectUI::Element>*> CSafeElementPtrList;
+
 template <typename T>
 class CSafeElementListenerPtr : public CSafeElementPtrBase<T>
 {

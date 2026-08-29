@@ -27,9 +27,6 @@
     <ClInclude Include="base.h">
       <Filter>Header Files\DirectUI</Filter>
     </ClInclude>
-    <ClInclude Include="event.h">
-      <Filter>Header Files\DirectUI</Filter>
-    </ClInclude>
     <ClInclude Include="Interfaces.h">
       <Filter>Header Files\DirectUI</Filter>
     </ClInclude>
@@ -37,54 +34,6 @@
       <Filter>Header Files\DirectUI</Filter>
     </ClInclude>
     <ClInclude Include="Bind.h">
-      <Filter>Header Files\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="CAVI.h">
-      <Filter>Header Files\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="CBase.h">
-      <Filter>Header Files\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="CBaseCheckRadioButton.h">
-      <Filter>Header Files\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="CBaseScrollBar.h">
-      <Filter>Header Files\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="CHScrollBar.h">
-      <Filter>Header Files\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="CCheckBox.h">
-      <Filter>Header Files\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="CCommandLink.h">
-      <Filter>Header Files\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="CPushButton.h">
-      <Filter>Header Files\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="CListBox.h">
-      <Filter>Header Files\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="CListView.h">
-      <Filter>Header Files\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="CProgressBar.h">
-      <Filter>Header Files\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="CRadioButton.h">
-      <Filter>Header Files\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="CCSysLink.h">
-      <Filter>Header Files\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="CTrackBar.h">
-      <Filter>Header Files\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="CTreeView.h">
-      <Filter>Header Files\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="CVScrollBar.h">
       <Filter>Header Files\DirectUI</Filter>
     </ClInclude>
     <ClInclude Include="CheckBoxGlyph.h">
@@ -133,12 +82,6 @@
       <Filter>Header Files\DirectUI</Filter>
     </ClInclude>
     <ClInclude Include="StyledScrollViewer.h">
-      <Filter>Header Files\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="XBaby.h">
-      <Filter>Header Files\DirectUI</Filter>
-    </ClInclude>
-    <ClInclude Include="XProvider.h">
       <Filter>Header Files\DirectUI</Filter>
     </ClInclude>
     <ClInclude Include="BrowserSelection.h">
@@ -417,9 +360,6 @@
     <ClInclude Include="Layout\BorderLayout.h">
       <Filter>Header Files\DirectUI</Filter>
     </ClInclude>
-    <ClInclude Include="TouchCheckBox.h">
-      <Filter>Header Files\DirectUI</Filter>
-    </ClInclude>
     <ClInclude Include="AutoLock.h">
       <Filter>Header Files\DirectUI</Filter>
     </ClInclude>
@@ -466,6 +406,84 @@
       <Filter>Header Files\DirectUI</Filter>
     </ClInclude>
     <ClInclude Include="Extensions\WizPageBase.h">
+      <Filter>Header Files\DirectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\Alloc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\DynamicArray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\TouchCheckBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\TouchHyperLink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\CommonControls\CAVI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\CommonControls\CBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\CommonControls\CBaseCheckRadioButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\CommonControls\CBaseScrollBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\CommonControls\CCheckBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\CommonControls\CCommandLink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\CommonControls\CCSysLink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\CommonControls\CHScrollBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\CommonControls\CListBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\CommonControls\CListView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\CommonControls\CProgressBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\CommonControls\CPushButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\CommonControls\CRadioButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\CommonControls\CTrackBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\CommonControls\CTreeView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\CommonControls\CVScrollBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\XBaby.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\XProvider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Provider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleTimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SafeElementPtr.h">
       <Filter>Header Files\DirectUI</Filter>
     </ClInclude>
   </ItemGroup>
