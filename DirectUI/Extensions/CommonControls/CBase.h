@@ -2,7 +2,7 @@
 
 namespace DirectUI
 {
-	typedef int (WINAPI *NOTIFYHANDLER)(UINT, UINT, int, int*, void*); // @TODO: Check the types
+	typedef LRESULT (WINAPI* NOTIFYHANDLER)(UINT, WPARAM, LPARAM, LRESULT*, void*);
 
 	class UILIB_API CCBase : public HWNDHost
 	{

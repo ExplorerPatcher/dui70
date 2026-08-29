@@ -58,6 +58,56 @@ namespace DirectUI
 		ECF_DoNotStealFocus = 0x80, // @TODO: Verify, HWNDElement::Initialize
 	} ElementCreateFlags;
 
+	enum aniTypeFlags
+	{
+		ANI_InterpolMask = 0x0000000F,
+		ANI_DelayMask = 0x000000F0,
+		ANI_TypeMask = 0x0FFFFF00,
+		ANI_SpeedMask = 0xF0000000,
+
+		ANI_DefaultInterpol = 0x00000000,
+		ANI_Linear = 0x00000001,
+		ANI_Log = 0x00000002,
+		ANI_Exp = 0x00000003,
+		ANI_S = 0x00000004,
+
+		ANI_DelayNone = 0x00000000,
+		ANI_DelayShort = 0x00000010,
+		ANI_DelayMedium = 0x00000020,
+		ANI_DelayLong = 0x00000030,
+
+		ANI_AlphaType = 0x00000F00,
+		ANI_BoundsType = 0x0000F000,
+		ANI_XFormType = 0x000F0000,
+
+		ANI_None = 0x00000000,
+		ANI_Alpha = 0x00000100,
+		ANI_Position = 0x00001000,
+		ANI_Size = 0x00002000,
+		ANI_SizeH = 0x00003000,
+		ANI_SizeV = 0x00004000,
+		ANI_Rect = 0x00005000,
+		ANI_RectH = 0x00006000,
+		ANI_RectV = 0x00007000,
+		ANI_Scale = 0x00010000,
+
+		ANI_DefaultSpeed = 0x00000000,
+		ANI_VeryFast = 0x10000000,
+		ANI_Fast = 0x20000000,
+		ANI_MediumFast = 0x30000000,
+		ANI_Medium = 0x40000000,
+		ANI_MediumSlow = 0x50000000,
+		ANI_Slow = 0x60000000,
+		ANI_VerySlow = 0x70000000,
+	};
+
+	enum propIndexFlags
+	{
+		PI_Local = 1,
+		PI_Specified = 2,
+		PI_Computed = 3,
+	};
+
 	class DuiAccessible;
 
 	typedef int (__cdecl *CompareCallback)(const void*, const void*);

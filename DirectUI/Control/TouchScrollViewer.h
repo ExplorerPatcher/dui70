@@ -230,18 +230,9 @@ namespace DirectUI
 		HRESULT CreateScrollBars() override;
 		HRESULT AddChildren() override;
 
-		TouchScrollBar* GetHScroll() override;
+		TouchScrollBar* GetHScroll() override { return _peHScroll; }
+		TouchScrollBar* GetVScroll() override { return _peVScroll; }
 
-	public:
-		using BaseScrollViewer::GetHScroll; // @NOTE: Might be wrong
-
-	protected:
-		TouchScrollBar* GetVScroll() override;
-
-	public:
-		using BaseScrollViewer::GetVScroll; // @NOTE: Might be wrong
-
-	protected:
 		void _SetLastInputType(UINT nLastInputType);
 
 		UINT MessageCallback(GMSG* pMsg) override;

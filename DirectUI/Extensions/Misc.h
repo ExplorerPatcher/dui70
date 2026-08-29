@@ -33,6 +33,13 @@ namespace DirectUI
 		GBUTTON_RIGHT = 2,
 		GBUTTON_MIDDLE = 3,
 		GBUTTON_MAX = 3,
+
+		GKEY_DOWN = 0,
+		GKEY_UP = 1,
+		GKEY_CHAR = 2,
+		GKEY_SYSDOWN = 3,
+		GKEY_SYSUP = 4,
+		GKEY_SYSCHAR = 5,
 	};
 
 	// bitflags
