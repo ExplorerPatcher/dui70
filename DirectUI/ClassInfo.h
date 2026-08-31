@@ -127,11 +127,9 @@ namespace DirectUI
 		{
 			HRESULT hr = S_OK;
 
-			IClassInfo* pClassSuper = nullptr;
-			DUI_GET_CLASS_INFO(SuperType, &pClassSuper);
+			IClassInfo* pClassSuper = GetElementClass<SuperType>();
 			if (pClassSuper)
 			{
-				DUI_GET_CLASS_INFO(SuperType, &pClassSuper);
 				pClassSuper->AddRef();
 			}
 			else
