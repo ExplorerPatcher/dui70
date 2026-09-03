@@ -106,6 +106,7 @@ namespace DirectUI
 		static HRESULT Create(HMODULE hModule, const WCHAR* pszName, bool fGlobal, const PropertyInfo* const* ppPI, UINT cPI, ClassInfo** ppCI)
 		{
 			*ppCI = nullptr;
+
 			ClassInfo* pCI = DirectUI::HNew<ClassInfo>();
 			HRESULT hr = pCI ? S_OK : E_OUTOFMEMORY;
 			if (SUCCEEDED(hr))
@@ -127,10 +128,9 @@ namespace DirectUI
 		{
 			HRESULT hr = S_OK;
 
-			IClassInfo* pClassSuper = GetElementClass<TBaseClass>();
-			if (pClassSuper)
+			if (GetElementClass<TBaseClass>())
 			{
-				pClassSuper->AddRef();
+				GetElementClass<TBaseClass>()->AddRef();
 			}
 			else
 			{
@@ -141,21 +141,20 @@ namespace DirectUI
 			{
 				CritSecLock lock(Element::GetFactoryLock());
 
-				IClassInfo* pClassExisting;
-				pClassSuper = GetElementClass<TBaseClass>();
-				if (ClassExist(&pClassExisting, ppPI, cPI, pClassSuper, hModule, pszName, fGlobal))
+				IClassInfo* pCI;
+				if (ClassExist(&pCI, ppPI, cPI, GetElementClass<TBaseClass>(), hModule, pszName, fGlobal))
 				{
-					SetElementClass<TClass>(pClassExisting);
+					SetElementClass<TClass>(pCI);
 					hr = S_OK;
 				}
 				else
 				{
 					SetElementClass<TClass>(nullptr);
-					ClassInfo* pCI;
+
 					hr = Create(hModule, pszName, fGlobal, ppPI, cPI, &pCI);
 					if (SUCCEEDED(hr))
 					{
-						hr = pCI->ClassInfoBase::Register();
+						hr = static_cast<ClassInfoBase*>(pCI)->Register();
 						if (SUCCEEDED(hr))
 						{
 							SetElementClass<TClass>(pCI);

@@ -1,40 +1,7 @@
 #pragma once
 
-#ifdef _DEBUG
-#define DUI_ASSERT(msg) \
-	do \
-	{ \
-		DirectUI::TryDbgPrintEx(101 /*DPFLTR_DEFAULT_ID*/, 0, msg); \
-		_ASSERTE(false); \
-	} \
-	while (0)
-
-#define DUI_ASSERT_EXPR(expr, msg) \
-	if (!(expr)) \
-	{ \
-	   DUI_ASSERT("(" #expr ")\r\n" msg "\r\n"); \
-	}
-#else
-#define DUI_ASSERT(msg)
-#define DUI_ASSERT_EXPR(expr, msg)
-#endif
-
 namespace DirectUI
 {
-	inline void TryDbgPrintEx(ULONG ComponentId, ULONG Level, PCSTR Format)
-	{
-		HMODULE hModule = GetModuleHandleW(L"ntdll.dll");
-		if (hModule)
-		{
-			typedef ULONG (WINAPI *DbgPrintEx_t)(ULONG ComponentId, ULONG Level, PCSTR Format, ...);
-			DbgPrintEx_t pfnDbgPrintEx = (DbgPrintEx_t)GetProcAddress(hModule, "DbgPrintEx");
-			if (pfnDbgPrintEx)
-			{
-				pfnDbgPrintEx(ComponentId, Level, Format);
-			}
-		}
-	}
-
 	// exported for int
 	template <typename T>
 	class SafeArrayAccessor
