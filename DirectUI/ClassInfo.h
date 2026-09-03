@@ -100,7 +100,7 @@ namespace DirectUI
 		}
 	};
 
-	template <typename ControlType, typename SuperType, typename CreatorType = StandardCreator<ControlType>>
+	template <typename TClass, typename TBaseClass, typename TCreator = StandardCreator<TClass>>
 	class ClassInfo : public ClassInfoBase
 	{
 		static HRESULT Create(HMODULE hModule, const WCHAR* pszName, bool fGlobal, const PropertyInfo* const* ppPI, UINT cPI, ClassInfo** ppCI)
@@ -127,14 +127,14 @@ namespace DirectUI
 		{
 			HRESULT hr = S_OK;
 
-			IClassInfo* pClassSuper = GetElementClass<SuperType>();
+			IClassInfo* pClassSuper = GetElementClass<TBaseClass>();
 			if (pClassSuper)
 			{
 				pClassSuper->AddRef();
 			}
 			else
 			{
-				hr = SuperType::Register();
+				hr = TBaseClass::Register();
 			}
 
 			if (SUCCEEDED(hr))
@@ -142,15 +142,15 @@ namespace DirectUI
 				CritSecLock lock(Element::GetFactoryLock());
 
 				IClassInfo* pClassExisting;
-				pClassSuper = GetElementClass<SuperType>();
+				pClassSuper = GetElementClass<TBaseClass>();
 				if (ClassExist(&pClassExisting, ppPI, cPI, pClassSuper, hModule, pszName, fGlobal))
 				{
-					SetElementClass<ControlType>(pClassExisting);
+					SetElementClass<TClass>(pClassExisting);
 					hr = S_OK;
 				}
 				else
 				{
-					SetElementClass<ControlType>(nullptr);
+					SetElementClass<TClass>(nullptr);
 					ClassInfo* pCI;
 					hr = Create(hModule, pszName, fGlobal, ppPI, cPI, &pCI);
 					if (SUCCEEDED(hr))
@@ -158,7 +158,7 @@ namespace DirectUI
 						hr = pCI->ClassInfoBase::Register();
 						if (SUCCEEDED(hr))
 						{
-							SetElementClass<ControlType>(pCI);
+							SetElementClass<TClass>(pCI);
 						}
 						else
 						{
@@ -184,18 +184,18 @@ namespace DirectUI
 
 		HRESULT CreateInstance(Element* pParent, DWORD* pdwDeferCookie, Element** ppElement) override
 		{
-			return CreatorType::CreateInstance(pParent, pdwDeferCookie, ppElement);
+			return TCreator::CreateInstance(pParent, pdwDeferCookie, ppElement);
 		}
 
 		IClassInfo* GetBaseClass() override
 		{
-			return GetElementClass<SuperType>();
+			return GetElementClass<TBaseClass>();
 		}
 
 		void Destroy() override
 		{
 			HDelete(this);
-			SetElementClass<ControlType>(nullptr);
+			SetElementClass<TClass>(nullptr);
 		}
 	};
 

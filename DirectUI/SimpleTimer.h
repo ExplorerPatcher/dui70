@@ -25,7 +25,7 @@ namespace DirectUI
         }
 
         SimpleTimer(float flDuration, DUI_TIMER_REPEAT_OPTION repeatOption)
-            : SimpleTimer(flDuration, repeatOption == DTR_NO_REPEAT ? 0 : INT_MAX) // TODO INT_MAX assumed
+            : SimpleTimer(flDuration, repeatOption == DTR_NO_REPEAT ? 0 : -1)
         {
         }
 

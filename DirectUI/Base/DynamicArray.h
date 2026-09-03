@@ -405,6 +405,11 @@ namespace DirectUI
 
 		void Remove(UINT uIndex, UINT cItems)
 		{
+			DUI_ASSERT_EXPR(!_fImmutable, "Only read operations allowed on immutable DynamicArray");
+			DUI_ASSERT_EXPR(uIndex < _uSize, "DynamicArray index out of bounds");
+			DUI_ASSERT_EXPR((uIndex + cItems) <= _uSize, "DynamicArray index out of bounds");
+			DUI_ASSERT_EXPR(cItems <= _uSize, "DynamicArray index out of bounds");
+
 			if (_uSize - uIndex != cItems)
 			{
 				T* pBuffer = Buffer();
