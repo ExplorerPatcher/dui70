@@ -69,6 +69,8 @@ namespace DirectUI
 		Expr = 13,
 		Atom = 14,
 		Cursor = 15,
+		EncodedStringLength = 16,
+		ValueList = 17,
 		Float = 18,
 		DblList = 19,
 	};
@@ -88,7 +90,7 @@ namespace DirectUI
 			int _intVal;
 			bool _boolVal;
 			Element* _peVal;
-			DirectUI::ElementList* _peListVal;
+			ElementList* _peListVal;
 			EncodedString _encodedStringVal;
 			WCHAR* _pszVal;
 			POINT _ptVal;
