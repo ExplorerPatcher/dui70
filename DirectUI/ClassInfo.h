@@ -151,10 +151,12 @@ namespace DirectUI
 				{
 					SetElementClass<TClass>(nullptr);
 
+					// ReSharper disable once CppDeclarationHidesLocal
+					ClassInfo* pCI;
 					hr = Create(hModule, pszName, fGlobal, ppPI, cPI, &pCI);
 					if (SUCCEEDED(hr))
 					{
-						hr = static_cast<ClassInfoBase*>(pCI)->Register();
+						hr = pCI->ClassInfoBase::Register();
 						if (SUCCEEDED(hr))
 						{
 							SetElementClass<TClass>(pCI);
