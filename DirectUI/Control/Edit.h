@@ -2,6 +2,10 @@
 
 namespace DirectUI
 {
+	struct EditEnterEvent : Event
+	{
+	};
+
 	class UILIB_API Edit : public HWNDHost
 	{
 	public:
@@ -10,13 +14,9 @@ namespace DirectUI
 
 		void OnPropertyChanged(const PropertyInfo* ppi, int iIndex, Value* pvOld, Value* pvNew) override;
 		void OnInput(InputEvent*) override;
-
 		bool OnNotify(UINT nMsg, WPARAM wParam, LPARAM lParam, LRESULT* plRet) override;
-
 		UINT MessageCallback(GMSG* pGMsg) override;
-
 		bool IsContentProtected() override;
-
 		const WCHAR* GetContentStringAsDisplayed(Value** ppv) override;
 		SIZE GetContentSize(int dConstW, int dConstH, Surface* psrf) override;
 

@@ -69,12 +69,6 @@ namespace DirectUI
 	typedef class ProviderProxy* (CALLBACK *PfnCreateProxy)(class Element*);
 	typedef int MethodId;
 
-
-	struct ThemeChangedEvent
-	{
-
-	};
-
 	class ElementProvider;
 	class InvokeHelper;
 	class Value;

@@ -2,40 +2,6 @@
 
 namespace DirectUI
 {
-	enum PropertyFlags
-	{
-		PF_None = 0x0,
-		PF_LocalOnly = 0x1,
-		PF_Normal = 0x2,
-		PF_TriLevel = 0x3,
-		PF_Cascade = 0x4,
-		PF_Inherit = 0x8,
-		PF_ReadOnly = 0x10,
-		PF_Cached = 0x20,
-		PF_SkipNotify = 0x40,
-
-		PF_TypeBits = 0x3,
-	};
-
-	DEFINE_ENUM_FLAG_OPERATORS(PropertyFlags);
-
-	enum PropertyGroups
-	{
-		PG_None = 0x0,
-		PG_AffectsDesiredSize = 0x1,
-		PG_AffectsParentDesiredSize = 0x2,
-		PG_AffectsLayout = 0x4,
-		PG_AffectsParentLayout = 0x8,
-		PG_AffectsBounds = 0x10000,
-		PG_AffectsDisplay = 0x20000,
-		PG_LayoutCompletion = 0x1000000,
-		PG_NormalPriMask = 0xFFFF,
-		PG_LowPriMask = 0xFF0000,
-		PG_NotificationMask = 0xFF000000
-	};
-
-	DEFINE_ENUM_FLAG_OPERATORS(PropertyGroups);
-
 	typedef DynamicArray<Element*> ElementList;
 	typedef DynamicArray<Value*> ValueList;
 
@@ -81,9 +47,9 @@ namespace DirectUI
 		int _fWeakRef : 1;
 		int _cRef : 25;
 
-		static constexpr int c_RefCountBitOffset = 7;
-		static constexpr long c_SingleRefCount = 1 << c_RefCountBitOffset;
-		static constexpr long c_RefCountMask = ~(c_SingleRefCount - 1);
+		static const int c_RefCountBitOffset = 7;
+		static const long c_SingleRefCount = 1 << c_RefCountBitOffset;
+		static const long c_RefCountMask = ~(c_SingleRefCount - 1);
 
 		union
 		{

@@ -224,6 +224,7 @@
     <ClInclude Include="Base\LinkedList.h" />
     <ClInclude Include="Base\SBAlloc.h" />
     <ClInclude Include="Base\Surface.h" />
+    <ClInclude Include="BinaryFile\BinaryXmlReader.h" />
     <ClInclude Include="Bind.h" />
     <ClInclude Include="BrowserSelection.h" />
     <ClInclude Include="CheckBoxGlyph.h" />
@@ -275,6 +276,7 @@
     <ClInclude Include="Core\Event.h" />
     <ClInclude Include="Core\Expression.h" />
     <ClInclude Include="Core\Host.h" />
+    <ClInclude Include="Core\IDuiLauncherAnimationTriggers.h" />
     <ClInclude Include="Core\Layout.h" />
     <ClInclude Include="Core\Navigation.h" />
     <ClInclude Include="Core\Sheet.h" />
@@ -282,7 +284,11 @@
     <ClInclude Include="Core\UnknownElement.h" />
     <ClInclude Include="Core\Value.h" />
     <ClInclude Include="DirectUI.h" />
-    <ClInclude Include="DuiAnimation.h" />
+    <ClInclude Include="IDuiAnimationTriggers.h" />
+    <ClInclude Include="IDuiBehavior.h" />
+    <ClInclude Include="IDuiBehaviorFactory.h" />
+    <ClInclude Include="IDuiBehaviorImpl.h" />
+    <ClInclude Include="PVLAnimation.h" />
     <ClInclude Include="DuiProxy.h" />
     <ClInclude Include="ElementProviderManager.h" />
     <ClInclude Include="Expando.h" />

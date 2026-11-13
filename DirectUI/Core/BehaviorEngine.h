@@ -6,12 +6,6 @@ namespace DirectUI
 	BehaviorEngine;
 }
 
-MIDL_INTERFACE("230aa8d1-9b2e-4074-8880-6a7f6125dccb")
-IDuiBehaviorFactory : IUnknown
-{
-	virtual HRESULT STDMETHODCALLTYPE CreateBehavior(const WCHAR*, IDuiBehavior**) = 0;
-};
-
 MIDL_INTERFACE("11322f06-9f1e-48c6-8d47-20398011a462")
 IDuiBehaviorEngine : IUnknown
 {

@@ -2228,47 +2228,6 @@ void Proxy::OnInvoke(unsigned int, void*)
 void ProviderProxy::Init(Element* pe) STUB_VOID;
 ProviderProxy::ProviderProxy() STUB_VOID;
 
-IProvider::IProvider(IProvider const&)
-{
-}
-
-IProvider::IProvider(void)
-{
-}
-
-IProvider& IProvider::operator=(IProvider const&)
-{
-	// TODO: 在此处插入 return 语句
-	return *this;
-}
-
-IXProviderCP::IXProviderCP(IXProviderCP const&)
-{
-}
-
-IXProviderCP::IXProviderCP(void)
-{
-}
-
-IXProviderCP& IXProviderCP::operator=(IXProviderCP const&)
-{
-	// TODO: 在此处插入 return 语句
-	return *this;
-}
-
-IXElementCP::IXElementCP(IXElementCP const&)
-{
-}
-
-IXElementCP::IXElementCP(void)
-{
-}
-
-IXElementCP& IXElementCP::operator=(IXElementCP const&)
-{
-	// TODO: 在此处插入 return 语句
-	return *this;
-}
 
 HRESULT StyleSheet::Create(StyleSheet** ppSheet) STUB_ZERO;
 

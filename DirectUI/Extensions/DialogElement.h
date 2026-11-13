@@ -2,6 +2,19 @@
 
 namespace DirectUI
 {
+	DECLARE_INTERFACE(IDialogElement)
+	{
+		virtual bool GetButtonClassAcceptsEnterKey() = 0;
+		virtual bool GetDefaultButtonTracking() = 0;
+		virtual Element* GetRegisteredDefaultButton() = 0;
+		virtual bool GetHandleEnterKey() = 0;
+		virtual HRESULT SetDefaultButtonTracking(bool v) = 0;
+		virtual Element* GetKeyFocusedElement() = 0;
+		virtual bool OnChildLostFocus(Element* peFrom) = 0;
+		virtual bool OnChildReceivedFocus(Element* peTo) = 0;
+		virtual Element* GetDefaultButton() = 0;
+	};
+
 	class UILIB_API DECLSPEC_NOVTABLE DialogElementCore
 	{
 	public:

@@ -172,8 +172,13 @@ EXTERN_C IMAGE_DOS_HEADER __ImageBase;
 #include "Control\SemanticController.h"
 #include "Control\ManipulationHelper.h"
 #include "PromptText.h"
-//#include "Core\IDuiLauncherAnimationTriggers.h"
-#include "DuiAnimation.h"
+#include "IDuiAnimationTriggers.h"
+#include "IDuiBehavior.h"
+#include "IDuiBehaviorFactory.h"
+#include "IDuiBehaviorImpl.h"
+#include "Core\IDuiLauncherAnimationTriggers.h"
+#include "PVLAnimation.h"
+#include "BinaryFile\BinaryXmlReader.h"
 
 // Touch elements
 #include "Control\ModernProgressBar.h"

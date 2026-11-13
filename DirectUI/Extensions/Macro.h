@@ -2,6 +2,21 @@
 
 namespace DirectUI
 {
+	interface UILIB_API IDataEntry
+	{
+		virtual ~IDataEntry() = default;
+
+		virtual HRESULT GetProperty(const WCHAR*, WCHAR**, bool*) = 0;
+		virtual void* GetActual() = 0;
+	};
+
+	interface UILIB_API IDataEngine
+	{
+		virtual ~IDataEngine() = default;
+		virtual UINT GetSize() = 0;
+		virtual IDataEntry* GetEntry(UINT) = 0;
+	};
+
 	class UILIB_API Macro : public Element
 	{
 	public:

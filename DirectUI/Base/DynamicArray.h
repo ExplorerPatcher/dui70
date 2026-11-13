@@ -116,6 +116,8 @@ namespace DirectUI
 	template <typename T, typename TAllocationPolicy, int MinInplaceCapacity = 1, int MinHeapCapacity = 0>
 	class DynamicArrayBase
 	{
+		typedef int (__cdecl *QSORTCMP)(const void*, const void*);
+		using ThisT = typename DynamicArrayBase<T, TAllocationPolicy, MinInplaceCapacity, MinHeapCapacity>;
 		using HeapT = typename TAllocationPolicy::HeapT;
 
 	public:
@@ -461,8 +463,6 @@ namespace DirectUI
 			return hr;
 		}
 
-		typedef int (__cdecl *QSORTCMP)(const void*, const void*);
-
 		void Sort(QSORTCMP fpCmp)
 		{
 			if (_uSize)
@@ -693,6 +693,7 @@ namespace DirectUI
 	class DynamicArray : public DynamicArrayBase<T, DoubleAllocationPolicy<T>, 1, MinHeapCapacity>
 	{
 		using BaseT = DynamicArrayBase<T, DoubleAllocationPolicy<T>, 1, MinHeapCapacity>;
+		using ThisT = DynamicArray<T, MinHeapCapacity>;
 
 	public:
 		~DynamicArray()

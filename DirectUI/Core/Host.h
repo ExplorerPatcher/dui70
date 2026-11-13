@@ -2,6 +2,20 @@
 
 namespace DirectUI
 {
+	struct ThemeChangedEvent
+	{
+		WPARAM wParam;
+		LPARAM lParam;
+	};
+
+	struct CompositionChangedEvent : Event
+	{
+	};
+
+	struct ImmersiveColorSchemeChangedEvent : Event
+	{
+	};
+
 	class UILIB_API HWNDElement : public ElementWithHWND
 	{
 	public:
