@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#include "TouchTooltip.h"
+
 namespace DirectUI
 {
     struct TouchSliderUpdatedEvent : Event

@@ -2,6 +2,8 @@
 
 namespace DirectUI
 {
+	struct IDialogElement;
+
 	struct ButtonContextEvent : Event
 	{
 		UINT uModifiers;

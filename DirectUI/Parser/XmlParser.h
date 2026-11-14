@@ -1,5 +1,7 @@
 #pragma once
 
+#include "BinaryFile/BinaryXmlReader.h"
+
 namespace DirectUI
 {
 	// Forward declaration of unexported class

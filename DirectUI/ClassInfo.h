@@ -204,7 +204,7 @@ namespace DirectUI
 	HRESULT CreateAndInit(Element* pParent, DWORD* pdwDeferCookie, Element** ppElement)
 	{
 		*ppElement = nullptr;
-		T* pT = HNew<T>();
+		T* pT = HNewAndZero<T>();
 		HRESULT hr = pT ? S_OK : E_OUTOFMEMORY;
 		if (SUCCEEDED(hr))
 		{
@@ -225,7 +225,7 @@ namespace DirectUI
 	HRESULT CreateAndInit(A1T arg1, Element* pParent, DWORD* pdwDeferCookie, Element** ppElement)
 	{
 		*ppElement = nullptr;
-		T* pT = HNew<T>();
+		T* pT = HNewAndZero<T>();
 		HRESULT hr = pT ? S_OK : E_OUTOFMEMORY;
 		if (SUCCEEDED(hr))
 		{
@@ -246,7 +246,7 @@ namespace DirectUI
 	HRESULT CreateAndInit(A1T arg1, A2T arg2, Element* pParent, DWORD* pdwDeferCookie, Element** ppElement)
 	{
 		*ppElement = nullptr;
-		T* pT = HNew<T>();
+		T* pT = HNewAndZero<T>();
 		HRESULT hr = pT ? S_OK : E_OUTOFMEMORY;
 		if (SUCCEEDED(hr))
 		{
@@ -267,7 +267,7 @@ namespace DirectUI
 	HRESULT CreateAndInit(A1T arg1, A2T arg2, A3T arg3, Element* pParent, DWORD* pdwDeferCookie, Element** ppElement)
 	{
 		*ppElement = nullptr;
-		T* pT = HNew<T>();
+		T* pT = HNewAndZero<T>();
 		HRESULT hr = pT ? S_OK : E_OUTOFMEMORY;
 		if (SUCCEEDED(hr))
 		{
