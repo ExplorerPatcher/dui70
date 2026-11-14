@@ -192,7 +192,6 @@ EXTERN_C IMAGE_DOS_HEADER __ImageBase;
 #include "Control\TouchSlider.h"
 #include "Control\TouchSwitch.h"
 #include "Control\TouchTooltip.h"
-#include "Control\TouchEditBase.h"
 #include "Control\TouchEditInner.h"
 #include "Control\TouchEdit2.h"
 #include "Control\TouchHyperLink.h"

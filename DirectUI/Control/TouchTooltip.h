@@ -1,29 +1,90 @@
 #pragma once
 
-DECLARE_INTERFACE_IID_(ITouchTooltipEventSink, IUnknown, "2D97ED04-C05F-4302-9462-8A9EC79F1464")
+enum TOUCHTOOLTIP_INPUT
 {
-	STDMETHOD(OnTooltipTimerFired)(DirectUI::TOUCHTOOLTIP_INPUT touchTooltipInput, DirectUI::TOUCHTOOLTIP_TYPE touchTooltipType, DirectUI::TOUCHTOOLTIP_DELAY touchTooltipDelay) PURE;
+	TTTI_PROGRAMMATIC = 0,
+	TTTI_KEYBOARD = 1,
+	TTTI_MOUSE = 2,
+	TTTI_POINTER = 3,
+	TTTI_COUNT = 4,
+};
+
+enum TOUCHTOOLTIP_PLACEMENT
+{
+	TTTP_ABOVE = 0,
+	TTTP_BELOW = 1,
+	TTTP_LEFT = 2,
+	TTTP_RIGHT = 3,
+	TTTP_COUNT = 4,
+};
+
+enum TOUCHTOOLTIP_TYPE
+{
+	TTTT_TEXT = 0,
+	TTTT_RICH = 1,
+	TTTT_COUNT = 2,
+};
+
+enum TOUCHTOOLTIP_DELAY
+{
+	TTTD_NORMAL = 0,
+	TTTD_RESHOW = 1,
+	TTTD_COUNT = 2,
+};
+
+enum TOUCHTOOLTIP_LAYOUT_DIRECTION
+{
+	TTTLD_INHERIT = 0,
+	TTTLD_LTR = 1,
+	TTTLD_RTL = 2,
+	TTTLD_COUNT = 3,
+};
+
+enum TOUCHTOOLTIP_OPTION_FLAGS
+{
+	TTTOF_DEFAULT = 0x0,
+	TTTOF_LAST_LINE_SUBTITLE = 0x1,
+	TTTOF_SLIDER = 0x2,
+	TTTOF_NO_WRAP = 0x4,
+	TTTOF_NO_UIA_OPENED_EVENT = 0x8,
+	TTTOF_SCALE_WITH_OWNER = 0x10,
+};
+
+DEFINE_ENUM_FLAG_OPERATORS(TOUCHTOOLTIP_OPTION_FLAGS);
+
+enum TOUCHTOOLTIP_CREATE_FLAGS
+{
+	TTTCF_DEFAULT = 0x0,
+	TTTCF_DESKTOP_DPI = 0x1,
+	TTTCF_CONSTRAIN_TO_WORKSPACE = 0x2,
+	TTTCF_CONSTRAIN_TO_MONITOR = 0x4,
+};
+
+DEFINE_ENUM_FLAG_OPERATORS(TOUCHTOOLTIP_CREATE_FLAGS);
+
+DECLARE_INTERFACE_IID_(ITouchTooltipEventSink, IUnknown, "2d97ed04-c05f-4302-9462-8a9ec79f1464")
+{
+	STDMETHOD(OnTooltipTimerFired)(TOUCHTOOLTIP_INPUT touchTooltipInput, TOUCHTOOLTIP_TYPE touchTooltipType, TOUCHTOOLTIP_DELAY touchTooltipDelay) PURE;
 	STDMETHOD(OnTooltipHidden)() PURE;
 };
 
-MIDL_INTERFACE("13450B2E-1819-49A5-B997-800D02CC0980")
-ITouchTooltip : IUnknown
+DECLARE_INTERFACE_IID_(ITouchTooltip, IUnknown, "13450b2e-1819-49a5-b997-800d02cc0980")
 {
-	virtual HRESULT STDMETHODCALLTYPE SetText(const WCHAR* pszText) = 0;
-	virtual HRESULT STDMETHODCALLTYPE SetTextWithMaxLines(const WCHAR* pszText, UINT cLinesMax) = 0;
-	virtual HRESULT STDMETHODCALLTYPE SetRichTooltip(DirectUI::Element* pe) = 0;
-	virtual HRESULT STDMETHODCALLTYPE GetOptions(DirectUI::TOUCHTOOLTIP_OPTION_FLAGS* ptouchTooltipOptionFlags) = 0;
-	virtual HRESULT STDMETHODCALLTYPE SetOptions(DirectUI::TOUCHTOOLTIP_OPTION_FLAGS touchTooltipOptionFlags) = 0;
-	virtual HRESULT STDMETHODCALLTYPE SetDirection(DirectUI::TOUCHTOOLTIP_LAYOUT_DIRECTION touchTooltipLayoutDirection) = 0;
-	virtual HRESULT STDMETHODCALLTYPE SetProgrammaticOffset(int cRPOffset) = 0;
-	virtual HRESULT STDMETHODCALLTYPE StartShowTimer(DirectUI::TOUCHTOOLTIP_INPUT touchTooltipInput, DirectUI::TOUCHTOOLTIP_TYPE touchTooltipType) = 0;
-	virtual HRESULT STDMETHODCALLTYPE Show(DirectUI::TOUCHTOOLTIP_INPUT touchTooltipInput, const RECT* prcTool, DirectUI::TOUCHTOOLTIP_PLACEMENT touchTooltipPlacementPreferred) = 0;
-	virtual HRESULT STDMETHODCALLTYPE ShowNearTouchPoint(const POINT* pptTouch, DirectUI::TOUCHTOOLTIP_PLACEMENT touchTooltipPlacementPreferred) = 0;
-	virtual HRESULT STDMETHODCALLTYPE ShowNearMousePoint(const POINT* pptMouse, DirectUI::TOUCHTOOLTIP_PLACEMENT touchTooltipPlacementPreferred) = 0;
-	virtual HRESULT STDMETHODCALLTYPE Hide() = 0;
-	virtual HRESULT STDMETHODCALLTYPE IsVisible() = 0;
-	virtual HRESULT STDMETHODCALLTYPE Advise(ITouchTooltipEventSink* pEventSink) = 0;
-	virtual HRESULT STDMETHODCALLTYPE Unadvise() = 0;
+	STDMETHOD(SetText)(LPCWSTR pszText) PURE;
+	STDMETHOD(SetTextWithMaxLines)(LPCWSTR pszText, UINT cLinesMax) PURE;
+	STDMETHOD(SetRichTooltip)(DirectUI::Element* pe) PURE;
+	STDMETHOD(GetOptions)(TOUCHTOOLTIP_OPTION_FLAGS* ptouchTooltipOptionFlags) PURE;
+	STDMETHOD(SetOptions)(TOUCHTOOLTIP_OPTION_FLAGS touchTooltipOptionFlags) PURE;
+	STDMETHOD(SetDirection)(TOUCHTOOLTIP_LAYOUT_DIRECTION touchTooltipLayoutDirection) PURE;
+	STDMETHOD(SetProgrammaticOffset)(int cRPOffset) PURE;
+	STDMETHOD(StartShowTimer)(TOUCHTOOLTIP_INPUT touchTooltipInput, TOUCHTOOLTIP_TYPE touchTooltipType) PURE;
+	STDMETHOD(Show)(TOUCHTOOLTIP_INPUT touchTooltipInput, const RECT* prcTool, TOUCHTOOLTIP_PLACEMENT touchTooltipPlacementPreferred) PURE;
+	STDMETHOD(ShowNearTouchPoint)(const POINT* pptTouch, TOUCHTOOLTIP_PLACEMENT touchTooltipPlacementPreferred) PURE;
+	STDMETHOD(ShowNearMousePoint)(const POINT* pptMouse, TOUCHTOOLTIP_PLACEMENT touchTooltipPlacementPreferred) PURE;
+	STDMETHOD(Hide)() PURE;
+	STDMETHOD(IsVisible)() PURE;
+	STDMETHOD(Advise)(ITouchTooltipEventSink* pEventSink) PURE;
+	STDMETHOD(Unadvise)() PURE;
 };
 
 namespace DirectUI

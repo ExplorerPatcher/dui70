@@ -255,7 +255,6 @@
     <ClInclude Include="Control\TouchButton.h" />
     <ClInclude Include="Control\TouchCheckBox.h" />
     <ClInclude Include="Control\TouchEdit2.h" />
-    <ClInclude Include="Control\TouchEditBase.h" />
     <ClInclude Include="Control\TouchEditInner.h" />
     <ClInclude Include="Control\TouchHWNDElement.h" />
     <ClInclude Include="Control\TouchHyperLink.h" />

@@ -12,6 +12,49 @@ namespace DirectUI
 		float centerY;
 	};
 
+	struct SnapshotTransformElementEvent : public DirectUI::Event
+	{
+		float _11;
+		float _12;
+		float _21;
+		float _22;
+		float _31;
+		float _32;
+		bool fIsSemanticChange;
+	};
+
+	struct ReleaseSnapshotEvent : public DirectUI::Event
+	{
+		float xTarget;
+		float yTarget;
+		bool fCrossfadeInPlace;
+		bool fIsSemanticChange;
+		GUID guidAnimationTelemetry;
+
+		__thiscall ReleaseSnapshotEvent();
+	};
+
+	struct MapContentVisualsEvent : Event
+	{
+		float xTarget;
+		float yTarget;
+		float xOffset;
+		float yOffset;
+		bool fAllowSubpixelMapping;
+	};
+
+	struct TilingEvent : Event
+	{
+		bool fAffectsAll;
+		RECT rcAffected;
+	};
+
+	struct SetContactEvent : Event
+	{
+		unsigned int uiPointerID;
+		bool fCancel;
+	};
+
 	struct SemanticChangeEvent : Event
 	{
 		float scaleFactor;
@@ -21,10 +64,11 @@ namespace DirectUI
 		float translateY;
 	};
 
-	struct SetContactEvent : Event
+	struct UpdateContentSizeEvent : Event
 	{
-		UINT uiPointerID;
-		bool fCancel;
+		int nContentSizeFlags;
+		SIZE sizeContentOverride;
+		POINT positionContentOverride;
 	};
 
 	struct TILE

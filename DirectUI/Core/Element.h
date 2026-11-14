@@ -879,11 +879,4 @@ namespace DirectUI
 		Element* _pElement;
 		DWORD _dwCookie;
 	};
-
-	struct UpdateContentSizeEvent : Event
-	{
-		int nContentSizeFlags;
-		SIZE sizeContentOverride;
-		POINT positionContentOverride;
-	};
 }

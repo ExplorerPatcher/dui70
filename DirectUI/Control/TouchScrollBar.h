@@ -2,6 +2,36 @@
 
 namespace DirectUI
 {
+	struct InteractionStartEvent : Event
+	{
+		int dPos;
+	};
+
+	struct InteractionEndEvent : Event
+	{
+		int dPos;
+	};
+
+	enum ActiveState
+	{
+		AS_HIDDEN = 0,
+		AS_REST = 1,
+		AS_MOUSE = 2,
+		AS_PAN = 3,
+	};
+
+	struct ActiveStateChangedEvent : Event
+	{
+		ActiveState asPrevious;
+		ActiveState asCurrent;
+	};
+
+	struct AnimateScrollEvent : Event
+	{
+		int dDistance;
+		bool fVertical;
+	};
+
 	class TouchScrollBar : public ScrollBar
 	{
 	public:

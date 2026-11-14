@@ -19,6 +19,14 @@ namespace DirectUI
 		PCE_BEFORE_OPEN = 2,
 	};
 
+	enum POPUPSCROLLVIEWERTYPE
+	{
+		PSVT_CAROUSELING = 0,
+		PSVT_SCROLLING = 1,
+		PSVT_NONSCROLLABLE = 2,
+		PSVT_NONE = 3,
+	};
+
 	struct PopupChangeEvent : Event
 	{
 		POPUPCHANGEEVENTTYPE changeType;
@@ -65,14 +73,6 @@ namespace DirectUI
 
 	class TouchSelectPopup
 	{
-	};
-
-	enum POPUPSCROLLVIEWERTYPE
-	{
-		PSVT_CAROUSELING = 0,
-		PSVT_SCROLLING = 1,
-		PSVT_NONSCROLLABLE = 2,
-		PSVT_NONE = 3,
 	};
 
 	class TouchSelect : public TouchButton
@@ -207,7 +207,7 @@ namespace DirectUI
 		HRESULT _RestoreListToFaceplate();
 		HRESULT _PrepareCarouselingPopup(const RECT* prcPopupBounds);
 		HRESULT _PrepareScrollingPopup(const RECT* prcPopupBounds);
-		HRESULT _PrepareNonScrollablePopup(const RECT* _PrepareNonScrollablePopup);
+		HRESULT _PrepareNonScrollablePopup(const RECT* prcPopupBounds);
 		HRESULT _PreparePopup(ClickDevice);
 		HRESULT _GetFaceplateFromScreenRect(RECT* prcFaceplateFromScreen);
 		void _GetLabelContentFromFaceplateRect(RECT* prcLabelContentFromFaceplate);

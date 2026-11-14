@@ -101,10 +101,4 @@ namespace DirectUI
 		int iNavDir;
 		bool fSetFocus;
 	};
-
-	struct AnimateScrollEvent : Event
-	{
-		int dDistance;
-		bool fVertical;
-	};
 }

@@ -8,12 +8,6 @@ enum SemanticZoomToggleState
 
 namespace DirectUI
 {
-	struct ActiveStateChangedEvent : Event
-	{
-		ActiveState asPrevious;
-		ActiveState asCurrent;
-	};
-
 	class SemanticZoomToggle : public Element
 	{
 	public:
